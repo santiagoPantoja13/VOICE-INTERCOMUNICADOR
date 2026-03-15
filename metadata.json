@@ -1,0 +1,5 @@
+{
+  "name": "VozIntercom",
+  "description": "Intercomunicador en tiempo real para hablar entre dispositivos con baja latencia.",
+  "requestFramePermissions": ["microphone"]
+}
