@@ -9,6 +9,10 @@ const io = new Server(server, {
   cors: { origin: "*" }
 });
 
+app.get("/", (req, res) => {
+  res.send("Servidor del Intercomunicador funcionando 🚀");
+});
+
 io.on("connection", (socket) => {
 
   console.log("Usuario conectado:", socket.id);
