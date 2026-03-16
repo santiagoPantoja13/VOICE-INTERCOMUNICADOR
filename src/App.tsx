@@ -24,7 +24,8 @@ export default function App() {
   const remoteAudioRef = useRef<HTMLAudioElement>(null);
 
   useEffect(() => {
-    socketRef.current = io();
+    const socketUrl = (import.meta as any)?.env?.VITE_SOCKET_URL || undefined;
+    socketRef.current = io(socketUrl);
 
     socketRef.current.on("connect", () => setIsConnected(true));
     socketRef.current.on("disconnect", () => setIsConnected(false));
