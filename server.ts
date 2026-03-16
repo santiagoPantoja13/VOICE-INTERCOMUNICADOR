@@ -14,9 +14,9 @@ async function startServer() {
     }
   });
 
-  const PORT = 3000;
+  const PORT: number = parseInt(process.env.PORT || "3000", 10);
 
-  
+  // Socket.io signaling logic
   io.on("connection", (socket) => {
     console.log("User connected:", socket.id);
 
@@ -24,7 +24,7 @@ async function startServer() {
       socket.join(channelId);
       console.log(`User ${socket.id} joined channel: ${channelId}`);
       
-      // Notifica a los demas en el canal
+      // Notificar a los demas en el canal
       socket.to(channelId).emit("user-joined", socket.id);
     });
 
